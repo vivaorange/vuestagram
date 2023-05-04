@@ -1,4 +1,5 @@
 <template>
+  {{ filter }}
   <div class="header">
     <ul class="header-button-left">
       <li>Cancel</li>
@@ -56,7 +57,13 @@ export default {
       clickBtn: 0,
       postData: postData,
       url: "",
+      filter: "",
     };
+  },
+  mounted() {
+    this.emitter.on("작명", (a) => {
+      this.filter = a;
+    });
   },
   components: {
     ContainerView,

@@ -8,6 +8,7 @@
       <span class="profile-name">{{ post.name }}</span>
     </div>
     <div
+      :class="`${filterName}`"
       class="post-body"
       :style="{ backgroundImage: `url(${post.postImage})` }"
     ></div>
@@ -26,6 +27,7 @@ export default {
   name: "PostView",
   props: {
     postData: Array,
+    filterName: String,
   },
 };
 </script>

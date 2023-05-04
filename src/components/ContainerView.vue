@@ -1,10 +1,14 @@
 <template>
   <div v-if="step == 0">
-    <PostView :postData="postData" />
+    <PostView :postData="postData" :filterName="filterName" />
   </div>
   <!-- 필터선택페이지 -->
   <div v-if="step == 1">
-    <div class="upload-image" :style="{ backgroundImage: `url(${url})` }"></div>
+    <div
+      :class="`${filterName}`"
+      class="upload-image"
+      :style="{ backgroundImage: `url(${url})` }"
+    ></div>
     <div class="filters">
       <FilterBox
         :url="url"
@@ -18,7 +22,11 @@
 
   <!-- 글작성페이지 -->
   <div v-if="step == 2">
-    <div class="upload-image" :style="{ backgroundImage: `url(${url})` }"></div>
+    <div
+      :class="`${filterName}`"
+      class="upload-image"
+      :style="{ backgroundImage: `url(${url})` }"
+    ></div>
     <div class="write">
       <textarea @input="$emit('write', $event.target.value)" class="write-box">
 write!</textarea
@@ -35,6 +43,7 @@ export default {
   name: "ContainerView",
   data() {
     return {
+      filterName: "",
       filters: [
         "aden",
         "_1977",
@@ -64,6 +73,11 @@ export default {
         "xpro2",
       ],
     };
+  },
+  mounted() {
+    this.emitter.on("filterName", (filterName) => {
+      this.filterName = filterName;
+    });
   },
   components: {
     PostView,

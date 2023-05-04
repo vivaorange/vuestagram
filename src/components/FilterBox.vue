@@ -4,6 +4,7 @@
     :style="{ backgroundImage: `url(${url})` }"
   >
     <slot></slot>
+    <button @click="fire">버튼</button>
   </div>
 </template>
 
@@ -13,6 +14,11 @@ export default {
   props: {
     url: String,
     filter: String,
+  },
+  methods: {
+    fire() {
+      this.emitter.emit("filterName", this.filter);
+    },
   },
 };
 </script>
