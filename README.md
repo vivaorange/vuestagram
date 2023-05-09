@@ -76,7 +76,8 @@
                 </li>
             </ul>
         </li>
-        <li>vuex
+        <br>
+        <li>Vuex
             <ul>
                 <li>사용
                     <ul>
@@ -93,6 +94,21 @@
                     </ul>
                 </li>
             </ul>
+        </li>
+        <li>Vuex actions(=ajax 요청하는 곳) 사용방법
+            <ul>
+                <li>1. store action 부분에 함수 작성</li>
+                <li>2. 불러올 부분에 @click="$store.dispatch('불러올 함수')"</li>
+                <li>actions 후에 state 변경은 무조건 mutations사용</li>
+            </ul>
+        </li>
+        <br>
+        <li>methods(부를 때마다 안의 코드가 실행됨) VS computed(불러도 안의 코드가 실행안됨 = 데이터 연산결과 저장공간)</li>
+        <br>
+        <li>PWA (웹사이트를 그대로 모바일앱처럼 사용)
+        <ul>
+            <li>1. vue add pwa로 설치</li>
+        </ul>
         </li>
     </ul>
 

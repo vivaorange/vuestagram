@@ -10,6 +10,17 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
+
+  <p>{{ myName }} {{ age }} {{ likes }}</p>
+
+  <h4>안녕 {{ $store.state.age }}</h4>
+  <!-- <button @click="$store.commit('changeAge', 10)">버튼</button> -->
+  <!-- mapMutations에 등록하고 쉽게 사용하는 방법 -->
+  <button @click="changeAge(10)">버튼</button>
+
+  <!-- <p>{{ $store.state.more }}</p>
+  <button @click="$store.dispatch('getData')">더보기 버튼</button> -->
+
   <ContainerView
     :postData="postData"
     :step="step"
@@ -46,6 +57,7 @@
 import ContainerView from "./components/ContainerView.vue";
 import postData from "./assets/data/postData.js";
 import axios from "axios";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "App",
@@ -67,7 +79,15 @@ export default {
   components: {
     ContainerView,
   },
+  computed: {
+    // name() {
+    //   return this.$store.state.name;
+    // },
+    ...mapState(["name", "age", "likes"]),
+    ...mapState({ myName: "name" }), // 이름을 주고 싶으면 오브젝트로 만들기
+  },
   methods: {
+    ...mapMutations(["setMore", "likesTrue", "changeAge"]), // 함수 등록
     more() {
       // axios.post('URL', {name: 'kim'}).then().catch((err)=>{
       //   err
