@@ -10,7 +10,6 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
-
   <ContainerView
     :postData="postData"
     :step="step"
@@ -18,7 +17,7 @@
     @write="writePost = $event"
   />
 
-  <button @click="more">더보기</button>
+  <!-- <button @click="more">더보기</button> -->
 
   <div class="footer">
     <ul class="footer-button-plus">

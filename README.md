@@ -76,6 +76,24 @@
                 </li>
             </ul>
         </li>
+        <li>vuex
+            <ul>
+                <li>사용
+                    <ul>
+                        <li>1. npm install vuex@next 설치</li>
+                        <li>2. store.js 파일 작성</li>
+                        <li>3. main.js 셋팅</li>
+                        <li>4. $store.state.작명 사용</li>
+                    </ul>                
+                </li>
+                <li>변경/수정
+                    <ul>
+                        <li>1. 미리 store.js파일안 mutations에 수정방법 정의 => 함수(state, data)</li>
+                        <li>2. 컨포넌트에서 소환에서 수정 => @click="$store.commit('실행할 함수','data')"</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
     </ul>
 
 </div>
